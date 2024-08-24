@@ -11,10 +11,11 @@ class Autor(models.Model):
         return f'{self.nome}, {self.email}, {self.ies}'
     
 
-class Artigo(models.Model):
-    titulo = models.CharField(max_length=255)
+class Detalhe(models.Model):
+    cidade = models.CharField(max_length=255)
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE)
     data = models.DateField()
+    cep = models.IntegerField()
 
     def __str__(self):
-        return f'{self.titulo}, {self.data}'
+        return f'{self.cidade}, {self.cep}, {self.data}'

@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404, redirect
 
-from .models import Autor, Artigo
+from .models import Autor, Detalhe
 
-from .forms import AutorForm, ArtigoForm         
+from .forms import AutorForm, DetalheForm         
 import requests
 
 
@@ -72,60 +72,60 @@ def autor_delete(request, pk):
     return render(request, 'myapp/autor_delete.html', {'autor': autor})
 
 
-#Lista de artigos
+#Lista de detalhes
 
-def artigo_list(request):
-    artigos = Artigo.objects.all()
-    return render(request, 'myapp/artigo_list.html', {'artigos' : artigos})
-
-
-
-#Detalhes do artigo
-
-def artigo_detail(request, pk):
-    artigo = get_object_or_404(Artigo, pk=pk)
-    return render(request, 'myapp/artigo_detail.htmml', {'artigo':artigo})
+def detalhe_list(request):
+    detalhes = Detalhe.objects.all()
+    return render(request, 'myapp/detalhe_list.html', {'detalhes' : detalhes})
 
 
 
-#Criação de artigo
+#Detalhes do detalhe
 
-def artigo_create(request):
+def detalhe_detail(request, pk):
+    detalhe = get_object_or_404(Detalhe, pk=pk)
+    return render(request, 'myapp/detalhe_detail.htmml', {'detalhe':detalhe})
+
+
+
+#Criação de detalhe
+
+def detalhe_create(request):
     if request.method == 'POST':
-        form = ArtigoForm(request.POST)
+        form = DetalheForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('artigo_list')
+            return redirect('detalhe_list')
     else:
-        form = ArtigoForm()
-    return render(request, 'myapp/artigo_form.html', {'form': form})
+        form = DetalheForm()
+    return render(request, 'myapp/detalhe_form.html', {'form': form})
 
 
 
 
 
-#Update de artigo
-def artigo_update(request, pk):
-    artigo = get_object_or_404(Artigo, pk=pk)
+#Update de detalhe
+def detalhe_update(request, pk):
+    detalhe = get_object_or_404(Detalhe, pk=pk)
     if request.method == 'POST':
-        form = ArtigoForm(request.POST, instance=artigo)
+        form = DetalheForm(request.POST, instance=detalhe)
         if form.is_valid():
             form.save()
-            return redirect('artigo_list')
+            return redirect('detalhe_list')
     else:
-        form = ArtigoForm(instance=artigo)
-    return render(request, 'myapp/artigo_form.html', {'form': form})
+        form = DetalheForm(instance=detalhe)
+    return render(request, 'myapp/detalhe_form.html', {'form': form})
 
 
 
 
 # Exclusão de livro
-def artigo_delete(request, pk):
-    artigo = get_object_or_404(Artigo, pk=pk)
+def detalhe_delete(request, pk):
+    detalhe = get_object_or_404(Detalhe, pk=pk)
     if request.method == 'POST':
-        artigo.delete()
-        return redirect('artigo_list')
-    return render(request, 'myapp/artigo_delete.html', {'artigo': artigo})
+        detalhe.delete()
+        return redirect('detalhe_list')
+    return render(request, 'myapp/detalhe_delete.html', {'detalhe': detalhe})
 
 
 

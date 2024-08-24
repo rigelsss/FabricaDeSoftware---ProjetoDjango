@@ -1,0 +1,10 @@
+<!-- templates/myapp/artigo_list.html -->
+
+
+<h1>Detalhes</h1>
+<ul>
+    {% for detalhe in detalhes %}
+        <li>{{ detalhe.cidade }} - <a href="{% url 'artigo_detail' artigo.pk %}">Ver Detalhes</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'detalhe_create' %}">Adicionar Novo Detalhe</a>

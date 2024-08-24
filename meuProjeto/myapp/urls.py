@@ -10,11 +10,11 @@ urlpatterns = [
     path('autor/<int:pk>/delete/', views.autor_delete, name='autor_delete'),
 
     # URLs para Book
-    path('artigo/', views.artigo_list, name='artigo_list'),
-    path('artigo/<int:pk>/', views.artigo_detail, name='artigo_detail'),
-    path('artigo/new/', views.artigo_create, name='artigo_create'),
-    path('artigo/<int:pk>/edit/', views.artigo_update, name='artigo_update'),
-    path('artigo/<int:pk>/delete/', views.artigo_delete, name='artigo_delete'),
+    path('detalhe/', views.detalhe_list, name='detalhe_list'),
+    path('detalhe/<int:pk>/', views.detalhe_detail, name='detalhe_detail'),
+    path('detalhe/new/', views.detalhe_create, name='detalhe_create'),
+    path('detalhe/<int:pk>/edit/', views.detalhe_update, name='detalhe_update'),
+    path('detalhe/<int:pk>/delete/', views.detalhe_delete, name='detalhe_delete'),
 
 
     # Nova rota para buscar autores da API externa

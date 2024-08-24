@@ -1,13 +1,13 @@
 <!-- templates/myapp/author_detail.html -->
 <h1>Detalhes do Autor</h1>
 
-<p><strong>Nome:</strong> {{ author.name }}</p>
-<p><strong>Email:</strong> {{ author.email }}</p>
+<p><strong>Nome:</strong> {{ autor.nome }}</p>
+<p><strong>Email:</strong> {{ autor.email }}</p>
 
-<h2>Livros</h2>
+<h2>Detalhes</h2>
 <ul>
-    {% for artigo in autor.artigo_set.all %}
-        <li>{{ book.title }} ({{ book.published_date }})</li>
+    {% for detalhe in autor.detalhes_set.all %}
+        <li>{{ detalhe.cidade }} {{ detalhe.rua }} ({{ detalhe.cep }})</li>
     {% endfor %}
 </ul>
 
