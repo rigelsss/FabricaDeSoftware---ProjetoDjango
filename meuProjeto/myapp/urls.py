@@ -15,4 +15,9 @@ urlpatterns = [
     path('artigo/new/', views.artigo_create, name='artigo_create'),
     path('artigo/<int:pk>/edit/', views.artigo_update, name='artigo_update'),
     path('artigo/<int:pk>/delete/', views.artigo_delete, name='artigo_delete'),
+
+
+    # Nova rota para buscar autores da API externa
+    path('fetch-autors/', views.fetch_autors_from_api, name='fetch_autors'),
+
 ]

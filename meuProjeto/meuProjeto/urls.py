@@ -21,6 +21,8 @@ from myapp import views                     # Importa as views do app
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('autor/', include('myapp.urls')),  
-    path('artigo/', include('myapp.urls')),  
+    path('artigo/', include('myapp.urls')), 
     path('', views.autor_list, name='home'),  
+    path('', include('myapp.urls')),
+    path('myapp/', include('myapp.urls')) 
 ]

@@ -1,0 +1,7 @@
+<h1>Dados Importados com Sucesso!</h1>
+<ul>
+    {% for user in users %}
+        <li>{{ user.name }} - {{ user.email }} - {{ user.ies }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'autor_list' %}">Voltar à Lista de Autores</a>

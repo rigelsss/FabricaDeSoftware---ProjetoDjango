@@ -8,7 +8,7 @@ class Autor(models.Model):
     ies = models.CharField(max_length=10)
 
     def __str__(self):
-        return f'{self.name}, {self.email}, {self.ies}'
+        return f'{self.nome}, {self.email}, {self.ies}'
     
 
 class Artigo(models.Model):
