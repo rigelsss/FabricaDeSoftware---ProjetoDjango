@@ -1,8 +1,9 @@
 <!-- templates/myapp/author_list.html -->
 <h1>Lista de Autores</h1>
 <ul>
-    {% for autor in autors %}
+    {% for autor in autores %}
         <li>{{ autor.nome }} - <a href="{% url 'autor_detail' autor.pk %}">Ver Detalhes</a></li>
     {% endfor %}
 </ul>
 <a href="{% url 'autor_create' %}">Adicionar Novo Autor</a>
+

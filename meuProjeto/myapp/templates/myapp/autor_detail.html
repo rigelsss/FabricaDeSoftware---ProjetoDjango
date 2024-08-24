@@ -1,0 +1,14 @@
+<!-- templates/myapp/author_detail.html -->
+<h1>Detalhes do Autor</h1>
+
+<p><strong>Nome:</strong> {{ author.name }}</p>
+<p><strong>Email:</strong> {{ author.email }}</p>
+
+<h2>Livros</h2>
+<ul>
+    {% for artigo in autor.artigo_set.all %}
+        <li>{{ book.title }} ({{ book.published_date }})</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'autor_list' %}">Voltar à Lista de Autores</a>

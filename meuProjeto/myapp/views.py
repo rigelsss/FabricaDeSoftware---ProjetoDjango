@@ -11,6 +11,9 @@ import requests
 #Lista de autores
 
 def autor_list(request):
+    fetch_autors_from_api(request)
+
+
     autores = Autor.objects.all()
     return render(request, 'myapp/autor_list.html', {'autores': autores})
 
@@ -19,7 +22,6 @@ def autor_list(request):
 #Detalhes do autor
 
 def autor_detail(request, pk):
-    fetch_autors_from_api()
 
     autor = get_object_or_404(Autor, pk=pk)
     return render(request, 'myapp/autor_detail.html', {'autor':autor})
